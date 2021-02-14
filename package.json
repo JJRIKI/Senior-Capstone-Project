@@ -1,0 +1,29 @@
+{
+  "name": "senior-capstone-project",
+  "version": "1.0.0",
+  "description": "Senior Capstone Project by Blake Dayman and James Bek",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JJRIKI/Senior-Capstone-Project.git"
+  },
+  "keywords": [
+    "heroku"
+  ],
+  "author": "Blake Dayman James Bek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JJRIKI/Senior-Capstone-Project/issues"
+  },
+  "dependencies": {
+    "node-static": "^0.7.11"
+  },
+  "engines": {
+    "node": "12.16.1"
+  },
+  "homepage": "https://github.com/JJRIKI/Senior-Capstone-Project#readme"
+}
