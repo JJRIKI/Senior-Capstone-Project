@@ -9,7 +9,7 @@ var file = new static.Server('./public');
 // if we arent on heroku then we need to readjust the port and directory information and we know that because the port wont be set
 if(typeof port == 'undefined' || !port){
     directory = './public';
-    port = 8080;
+    port = 8000;
 }
 
 // set up static web server that will deliver files from the filesystem
