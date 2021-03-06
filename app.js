@@ -40,4 +40,4 @@ var app = http.createServer(function(request,response){
     ).resume();
 }
 ).listen(port);
-console.log('The server is running');
+console.log(`Server running at ${port}/`);
