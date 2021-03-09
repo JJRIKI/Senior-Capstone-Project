@@ -21,6 +21,12 @@
   },
   "homepage": "https://github.com/JJRIKI/Senior-Capstone-Project#readme",
   "dependencies": {
+    "@fullcalendar/daygrid": "^5.5.0",
+    "@fullcalendar/react": "^5.5.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "fullcalendar": "^5.5.1",
     "node-static": "^0.7.11"
-  }
+  },
+  "devDependencies": {}
 }
