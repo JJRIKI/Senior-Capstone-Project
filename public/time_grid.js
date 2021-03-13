@@ -1,14 +1,16 @@
 'use strict';
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     var calendarEl = document.getElementById('calendar');
-//     var calendar = new FullCalendar.Calendar(calendarEl, {
-//       initialView: 'dayGridMonth'
-//     });
-//     calendar.render();
-//   });
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth'
+    });
+    calendar.render();
+  });
 
-const e = React.createElement;
+
+
+  const e = React.createElement;
 
 class LikeButton extends React.Component {
   constructor(props) {

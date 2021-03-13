@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="main.css">
         <!-- <link href='main.min.css' rel='stylesheet' />
         <script src='main.min.js'></script> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js"></script>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -22,26 +24,9 @@
         <div id="timeGrid">
 
         </div>
-        <div id="calandar">
+        <div id="calendar">
 
         </div>
-        <script type="text/babel">
-            import React from 'react'
-            import FullCalendar from '@fullcalendar/react'
-            import dayGridPlugin from '@fullcalendar/daygrid'
-
-            export default class DemoApp extends React.Component {
-            render() {
-                return (
-                <FullCalendar
-                    plugins={[ dayGridPlugin ]}
-                    initialView="dayGridMonth"
-                />
-                )
-            }
-            }
-
-        </script>
 
         <div id="like_button_container">
 
