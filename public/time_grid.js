@@ -1,14 +1,38 @@
 'use strict';
 
+// var calendarEl = document.getElementById('calendar');
+// let calendar = new Calendar(calendarEl, {
+//     plugins: [ timeGridPlugin ],
+//     initialView: 'timeGridWeek'
+//   });
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     var calendarEl = document.getElementById('calendar');
+//     var calendar = new FullCalendar.Calendar(calendarEl, {
+//         plugins: [ timeGridPlugin ],
+//         initialView: 'timeGridWeek'
+//     });
+//     calendar.render();
+//   });
+
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth'
+      timeZone: 'PST',
+      initialView: 'timeGridWeek',
+    //   headerToolbar: {
+    //     left: 'prev,next today',
+    //     center: 'title',
+    //     right: 'timeGridWeek,timeGridDay'
+    //   },
+    //   events: 'https://fullcalendar.io/demo-events.json'
     });
+
     calendar.render();
   });
 
-
+    
 
   const e = React.createElement;
 
