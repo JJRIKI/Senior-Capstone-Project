@@ -13,6 +13,8 @@
 		array_push($data, $tuple);
 	}
 	mysqli_free_result($result);
+
+	echo $data;
  
     mysqli_close($dbconn);
     echo json_encode($data);
