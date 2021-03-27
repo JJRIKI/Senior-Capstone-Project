@@ -12,7 +12,18 @@
 // server.listen(port, hostname, () => {
 //   console.log(`Server running at http://${hostname}:${port}/`);
 // });
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'nimble'
+});
 
+connection.connect((err) => {
+  if (err) throw err;
+  console.log('Connected to MySQL Server!');
+});
 
 var static = require('node-static');
 var http = require('http');
