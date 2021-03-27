@@ -1,1 +1,1 @@
-DROP TABLE tableName Cascade;
+DROP TABLE Events Cascade;

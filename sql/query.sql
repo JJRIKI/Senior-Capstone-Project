@@ -1,2 +1,2 @@
 \! echo * event
-SELECT * FROM tableName;
+SELECT * FROM Events;
