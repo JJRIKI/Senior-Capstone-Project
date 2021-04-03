@@ -1,9 +1,8 @@
 CREATE TABLE Events (
-	event_id varchar(80),
-	eventTitle varchar(80),
-	eventStart datetime, 
-	eventEnd datetime,
-	is_complete BOOL,
+	id varchar(80),
+	title varchar(80),
+	start datetime, 
+	end datetime
 	PRIMARY KEY (event_id)
 
 );
