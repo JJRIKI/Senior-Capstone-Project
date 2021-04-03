@@ -13,16 +13,12 @@
 //   console.log(`Server running at http://${hostname}:${port}/`);
 // });
 const mysql = require('mysql');
+const fs = require('fs');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
   database: 'nimble'
-});
-
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to MySQL Server!');
 });
 
 var static = require('node-static');
@@ -32,6 +28,23 @@ var port = process.env.PORT;
 var directory = __dirname + '/public';
 
 var file = new static.Server('./public');
+
+connection.connect(function(err) {
+  if (err) throw err;
+  connection.query("SELECT * FROM Events", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+    var eventJSON = JSON.stringify(result);
+    fs.writeFile('./public/events.json', eventJSON, (err) => {
+      if (err)
+        console.log(err);
+      else {
+        console.log("File written successfully\n");
+      }
+      });
+  });
+
+});
 
 // if we arent on heroku then we need to readjust the port and directory information and we know that because the port wont be set
 if(typeof port == 'undefined' || !port){

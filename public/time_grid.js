@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         center: 'title',
         right: 'timeGridWeek,timeGridDay'
       },
-      events: 'events.php'
+      events: 'events.json'
     });
 
     calendar.render();

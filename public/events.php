@@ -1,15 +1,20 @@
 <?php
-	require "./database.php";
+	require "database.php";
 
 	$json = array();
-	$query = "SELECT * FROM Events";
-	$result = mysqli_query($dbconn, $query);
-	$data = array();
-	while ($row = mysqli_fetch_assoc($result)) 
+	$query = "SELECT * FROM Events ORDER BY id";
+	$result = mysqli_query($conn, $query);
+	$data = [];
+	foreach($result as $row) 
     {
-        array_push(data, $row);
+        $data[] = [
+			'id'              => $row->id,
+			'title'           => $row->title,
+			'start'           => $row->start,
+			'end'             => $row->end
+		];
     }
 	mysqli_free_result($result);
-	mysqli_close($dbconn);
+	mysqli_close($conn);
 	echo json_encode($data);
 ?>

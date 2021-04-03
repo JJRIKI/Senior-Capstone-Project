@@ -1,8 +1,10 @@
 CREATE TABLE Events (
 	id varchar(80),
 	title varchar(80),
-	start datetime, 
-	end datetime
-	PRIMARY KEY (event_id)
+	start varchar(80), 
+	end varchar(80),
+	PRIMARY KEY (id)
 
 );
+SHOW TABLES;
+USE nimble;
