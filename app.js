@@ -43,7 +43,18 @@ connection.connect(function(err) {
       }
       });
   });
-
+  connection.query("SELECT * FROM Backlog", function (err, result2, fields) {
+    if (err) throw err;
+    console.log(result2);
+    var eventJSON2 = JSON.stringify(result2);
+    fs.writeFile('./public/backlog.json', eventJSON2, (err) => {
+      if (err)
+        console.log(err);
+      else {
+        console.log("File written successfully\n");
+      }
+      });
+  });
 });
 
 // if we arent on heroku then we need to readjust the port and directory information and we know that because the port wont be set
