@@ -1,6 +1,7 @@
 {
   "name": "senior-capstone-project",
   "version": "1.0.0",
+  "type": "module",
   "description": "Senior Capstone Project for CS-190",
   "main": "app.js",
   "scripts": {
