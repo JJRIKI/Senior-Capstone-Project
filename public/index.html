@@ -35,22 +35,21 @@
               <strong>Backlog</strong>
             </p>
           
-            <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-              <div class='fc-event-main'>My Event 1</div>
+            <div id="backlog">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse" role="button" aria-expanded="false" aria-controls="collapse">Add Task</button>
+                <div class="collapse" id="collapse">
+                    <div class="card card-body">
+                        <form>
+                            <div class="form-group">
+                              <label for="backlogTask">Enter Task</label>
+                              <input type="text" class="form-control" id="formGroupBacklogInput">
+                              <input onclick="othername();" />
+                            </div>
+                            
+                          </form>
+                    </div>
+                  </div>
             </div>
-            <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-              <div class='fc-event-main'>My Event 2</div>
-            </div>
-            <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-              <div class='fc-event-main'>My Event 3</div>
-            </div>
-            <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-              <div class='fc-event-main'>My Event 4</div>
-            </div>
-            <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-              <div class='fc-event-main'>My Event 5</div>
-            </div>
-          
             <p>
               <input type='checkbox' id='drop-remove' />
               <label for='drop-remove'>remove after drop</label>
@@ -63,7 +62,7 @@
         <div>
 
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <!-- Load React. -->
@@ -72,6 +71,7 @@
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
         <!-- Load our React component. -->
-        <script src="time_grid.js"></script>    
+        <script src="time_grid.js"></script>  
+        <script src="main.js"></script>   
     </body>
 </html>

@@ -8,9 +8,9 @@ CREATE TABLE Events (
 );
 
 CREATE TABLE Backlog (
-	id varchar(80),
-	title varchar(80)
-
+	title varchar(80),
+    duration varchar(80)
+	
 );
 SHOW TABLES;
 USE nimble;
