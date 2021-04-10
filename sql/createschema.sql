@@ -6,5 +6,11 @@ CREATE TABLE Events (
 	PRIMARY KEY (id)
 
 );
+
+CREATE TABLE Backlog (
+	id varchar(80),
+	title varchar(80)
+
+);
 SHOW TABLES;
 USE nimble;
