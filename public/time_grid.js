@@ -1,5 +1,4 @@
 'use strict';
-// import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 
 // var calendarEl = document.getElementById('calendar');
 // let calendar = new Calendar(calendarEl, {
@@ -23,16 +22,13 @@
 //   database: 'nimble'
 // });
 $(document).ready(()=>{
-  $('#my-draggable').draggable({
-    revert: true,      // immediately snap back to original position
-    revertDuration: 0  //
-  });
+  $('#my-draggable').draggable();
 });
 
 function othername() {
   var input = document.getElementById("formGroupBacklogInput").value;
     
-    $('#backlog').html('<div class=\'fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event\'><div id=\'my-draggable\' class=\'fc-event-main\'>' + input + '</div></div>');
+    $('#backlog').html('<div class=\'fc-event item-class fc-h-event fc-daygrid-event fc-daygrid-block-event\'><div id=\'my-draggable\' class=\'fc-event-main\'>' + input + '</div></div>');
 
 }
 
@@ -51,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // });
 
     new Draggable(backlog,{
-      itemSelector: '.fc-event',
+      itemSelector: '.item-class',
       eventData: function(eventEl){
         return{
           title: eventEl.innerText
@@ -68,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         right: 'timeGridWeek,timeGridDay'
       },
       editable: true,
-      // plugins:  [ interactionPlugin ],
       droppable: true,
       events: 'events.json'
     });
