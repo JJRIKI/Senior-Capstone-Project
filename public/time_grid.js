@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
       initialView: 'dayGridMonth',
       headerToolbar: {
         left: 'prev,next today',
-        center: 'addEventButton',
+        center: 'addEventButton removeEventButton',
         right: 'timeGridWeek,timeGridDay'
       },
       editable: true,
@@ -88,11 +88,11 @@ document.addEventListener('DOMContentLoaded', function() {
         addEventButton: {
           text: 'add event...',
           click: function() {
-            var titleStr = prompt('Enter a title');
-            var allDay;
-            var timeStr;
-            var datestr = prompt('Enter a date in YYYY-MM-DD format');
-            var allDaystr = prompt('Is your event all day?');
+            var id, allDay, timeStr, titleStr, datestr, allDaystr;
+            titleStr = prompt('Enter a title');
+            id = titleStr;
+            datestr = prompt('Enter a date in YYYY-MM-DD format');
+            allDaystr = prompt('Is your event all day?');
             if(allDaystr === 'yes') {
               allDay = true;
               timeStr = '00:00'
@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var date = new Date(datestr + 'T' + timeStr + ':00');
             if (!isNaN(date.valueOf())) { // valid?
               calendar.addEvent({
+                id: id,
                 title: titleStr,
                 start: date,
                 allDay: allDay
@@ -113,9 +114,22 @@ document.addEventListener('DOMContentLoaded', function() {
               alert('Invalid date.');
             }
           }
+        },
+        removeEventButton: {
+          text: 'remove event...',
+          click: function() {
+            var id = prompt('Type in the event you want to remove');
+            var re = calendar.getEventById(id);
+            if(re !== 'null') {
+              re.remove();
+              alert('We attempted to remove your event');
+            }
+            else {
+              alert('No event with that ID');
+            }
+          }
         }
       }
-
     });
 
 
