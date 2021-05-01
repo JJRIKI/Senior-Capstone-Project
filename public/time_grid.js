@@ -1,5 +1,6 @@
 'use strict';
 
+
 // var calendarEl = document.getElementById('calendar');
 // let calendar = new Calendar(calendarEl, {
 //     plugins: [ timeGridPlugin ],
@@ -21,24 +22,36 @@
 //   password: 'root',
 //   database: 'nimble'
 // });
-$(document).ready(()=>{
-  $('#my-draggable').draggable();
-});
+// $(document).ready(()=>{
+//   $('#my-draggable').draggable();
+// });
 
-function othername() {
-  var input = document.getElementById("formGroupBacklogInput").value;
-    
-    $('#backlog').html('<div class=\'fc-event item-class fc-h-event fc-daygrid-event fc-daygrid-block-event\'><div id=\'my-draggable\' class=\'fc-event-main\'>' + input + '</div></div>');
 
-}
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  var Draggable = FullCalendar.Draggable;  
+  // Backlog Draggable functionality
+
+  // var ThirdPartyDraggable = FullCalendar.ThirdPartyDraggable;  
+  // var interactionPlugin =  new FullCalandar.interactionPlugin;
   
-  var calendarEl = document.getElementById('calendar');
-  var backlog = document.getElementById('backlog');
-    
+  // let containerEl = document.getElementById('backlog');
+  // var backlog = document.getElementById('backlog');
+   
+  // let drake = dragula({
+  //   containers: [ containerEl ],
+  //   copy: true
+  // });
+
+  // new ThirdPartyDraggable(containerEl, {
+  //   itemSelector: '.my-item',
+  //   mirrorSelector: '.gu-mirror', // the dragging element that dragula renders
+  //   eventData: function(eventEl) {
+  //     return {
+  //       title: eventEl.innerText
+  //     };
+  //   }
+  // });
 
     // connection.query("SELECT * FROM Backlog", function (err, result2, fields) {
     //   if (err) throw err;
@@ -46,33 +59,70 @@ document.addEventListener('DOMContentLoaded', function() {
     //   return result2;
     // });
 
-    new Draggable(backlog,{
-      itemSelector: '.item-class',
-      eventData: function(eventEl){
-        return{
-          title: eventEl.innerText
-        };
-      }
-    });
+    // new Draggable(backlog,{
+    //   itemSelector: '.item-class',
+    //   eventData: function(eventEl){
+    //     return{
+    //       title: eventEl.innerText
+    //     };
+    //   }
+    // });
+
+    var calendarEl = document.getElementById('calendar');
+
+
+ 
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
       timeZone: 'PST',
-      initialView: 'timeGridWeek',
+      initialView: 'dayGridMonth',
       headerToolbar: {
         left: 'prev,next today',
-        center: 'title',
+        center: 'addEventButton',
         right: 'timeGridWeek,timeGridDay'
       },
       editable: true,
       droppable: true,
-      events: 'events.json'
+      events: 'events.json',
+      customButtons: {
+        addEventButton: {
+          text: 'add event...',
+          click: function() {
+            var titleStr = prompt('Enter a title');
+            var allDay;
+            var timeStr;
+            var datestr = prompt('Enter a date in YYYY-MM-DD format');
+            var allDaystr = prompt('Is your event all day?');
+            if(allDaystr === 'yes') {
+              allDay = true;
+              timeStr = '00:00'
+            }
+            else {
+              allDay = false;
+              timeStr = prompt('Enter a time hour:min');
+            }
+            var date = new Date(datestr + 'T' + timeStr + ':00');
+            if (!isNaN(date.valueOf())) { // valid?
+              calendar.addEvent({
+                title: titleStr,
+                start: date,
+                allDay: allDay
+              });
+              alert('Great. Now, update your database...');
+            } else {
+              alert('Invalid date.');
+            }
+          }
+        }
+      }
+
     });
 
 
 
     calendar.render();
 
-    new Draggable(backlog);
+    // new Draggable(backlog);
   });
 
 

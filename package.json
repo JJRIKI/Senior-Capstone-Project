@@ -1,7 +1,6 @@
 {
   "name": "senior-capstone-project",
   "version": "1.0.0",
-  "type": "module",
   "description": "Senior Capstone Project for CS-190",
   "main": "app.js",
   "scripts": {
@@ -29,7 +28,7 @@
     "@fullcalendar/timegrid": "^5.5.1",
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
-    "fullcalendar": "^5.5.1",
+    "fullcalendar": "^5.6.0",
     "mysql": "^2.18.1",
     "node-static": "^0.7.11"
   }

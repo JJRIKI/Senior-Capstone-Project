@@ -5,11 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="main.css">
-        <!-- <link href='node_modules\@fullcalendar\common\main.css' rel='stylesheet' />
-        <script src='node_modules\@fullcalendar\common\main.js'></script>
-        <link href='node_modules\@fullcalendar\timegrid\main.css' rel='stylesheet' />
-        <script src='node_modules\@fullcalendar\timegrid\main.js'></script> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bevacqua/dragula@3.7.3/dist/dragula.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css">
+        
+        <script src="https://cdn.jsdelivr.net/gh/bevacqua/dragula@3.7.3/dist/dragula.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.js"></script>
         <!-- Bootstrap CSS -->
@@ -30,7 +29,8 @@
         <div id="calendar">
 
         </div>
-        <div>
+        <!-- Backlog Attempt -->
+        <!-- <div>
             <p>
               <strong>Backlog</strong>
             </p>
@@ -41,7 +41,11 @@
                         <form>
                             <div class="form-group">
                               <label for="backlogTask">Enter Task</label>
-                              <input type="text" class="form-control" id="formGroupBacklogInput">
+                              <input type="text" class="form-control" id="formGroupBacklogTitle">
+                              <input type="text" class="form-control" id="formGroupBacklogDate">
+                              <input type='checkbox' id='formGroupBacklogDay' />
+                              <label for='formGroupBacklogDay'>All Day</label>
+
                               <input onclick="othername();" />
                             </div>
                             
@@ -56,7 +60,7 @@
               <input type='checkbox' id='drop-remove' />
               <label for='drop-remove'>remove after drop</label>
             </p>
-          </div>
+          </div> -->
         <div id="like_button_container">
 
         </div>
@@ -67,6 +71,9 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/$VERSION/dragula.min.js'></script>
+        <script src='..\node_modules\@fullcalendar\interaction\main.js'></script> 
+
         <!-- Load React. -->
         <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
         <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>

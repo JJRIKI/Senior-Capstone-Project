@@ -1,1 +1,2 @@
-INSERT INTO Events (id, title, start) VALUES ("b", "my event", "2021-03-26");
+INSERT INTO Events (id, title, start) VALUES ("d", "progress report 3", "2021-04-02");
+INSERT INTO Backlog (title) VALUES ("randomEvent");
