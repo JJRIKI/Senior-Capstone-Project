@@ -1,6 +1,16 @@
 'use strict';
 
 
+
+// var mysql = require('mysql');
+// const fs = require('fs');
+// var con = mysql.createConnection({
+//   host: "localhost", //TODO docker host server
+//   user: "root",
+//   password: "root",
+//   database: "nimble"
+// });
+
 // var calendarEl = document.getElementById('calendar');
 // let calendar = new Calendar(calendarEl, {
 //     plugins: [ timeGridPlugin ],
@@ -25,9 +35,6 @@
 // $(document).ready(()=>{
 //   $('#my-draggable').draggable();
 // });
-
-
-
 
 document.addEventListener('DOMContentLoaded', function() {
   // Backlog Draggable functionality
@@ -69,8 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // });
 
     var calendarEl = document.getElementById('calendar');
-
-
  
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -110,6 +115,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 allDay: allDay
               });
               alert('Great. Now, update your database...');
+              
+              $.getScript("pshEvent.js", function() {
+                con.connect(function(err) {
+                  if (err) throw err;
+                    con.query("INSERT INTO Events (id, title, start) VALUES (\'" + id + "\',  \'" + title + "\', \'" + start + "\')", function (err, result, fields) {
+                    if (err) throw err;
+                    });
+                });
+                alert("Script loaded but not necessarily executed.");
+              });
+              
+              //con.query("INSERT INTO Events (id, title, start) VALUES (\'" + id + "\',  \'" + title + "\', \'" + start + "\')");
+              // con.connect(function(err) {
+              //   if (err) throw err;
+              //   con.query("INSERT INTO Events (id, title, start) VALUES (\'" + id + "\',  \'" + title + "\', \'" + start + "\')", function (err, result, fields) {
+              //     if (err) throw err;
+
+              //   });
+              // });
+            
             } else {
               alert('Invalid date.');
             }
@@ -123,10 +148,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if(re !== 'null') {
               re.remove();
               alert('We attempted to remove your event');
+
+              //con.query("DELETE FROM Events WHERE id = " +id);
             }
             else {
               alert('No event with that ID');
             }
+            
           }
         }
       }
