@@ -12,14 +12,18 @@
 // server.listen(port, hostname, () => {
 //   console.log(`Server running at http://${hostname}:${port}/`);
 // });
-const mysql = require('mysql');
+const sql = require('mssql');
 const fs = require('fs');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'nimble'
-});
+
+const configDocker = {
+	user: 'sa',
+	password: 'super_duper_password',
+	server: 'nimble2021',
+	database: 'Events',
+	options: {
+		enableArithAbort: true
+	}
+}
 
 var static = require('node-static');
 var http = require('http');
@@ -29,33 +33,33 @@ var directory = __dirname + '/public';
 
 var file = new static.Server('./public');
 
-connection.connect(function(err) {
-  if (err) throw err;
-  connection.query("SELECT * FROM Events", function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-    var eventJSON = JSON.stringify(result);
-    fs.writeFile('./public/events.json', eventJSON, (err) => {
-      if (err)
-        console.log(err);
-      else {
-        console.log("File written successfully\n");
-      }
-      });
-  });
-  connection.query("SELECT * FROM Backlog", function (err, result2, fields) {
-    if (err) throw err;
-    console.log(result2);
-    var eventJSON2 = JSON.stringify(result2);
-    fs.writeFile('./public/backlog.json', eventJSON2, (err) => {
-      if (err)
-        console.log(err);
-      else {
-        console.log("File written successfully\n");
-      }
-      });
-  });
-});
+var eventJSON;
+const run = async () => {
+	let pool;
+	try {
+		console.log('Connection opening...');
+		pool = await sql.connect(config);
+		const { recordset } await sql.query('SELECT * FROM Events');
+		console.log(recordset);
+	} catch(err) {
+		console.log(err);
+	} finally {
+		pool.close();
+		console.log('Connection closed');
+	}
+	eventJSON = JSON.stringify(recordset);
+	fs.writeFile('./public/events.json', eventJSON, (err) => {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			consolelog('File written successfully');
+		}
+	}
+
+} run();
+
+
 
 // if we arent on heroku then we need to readjust the port and directory information and we know that because the port wont be set
 if(typeof port == 'undefined' || !port){
