@@ -17,9 +17,10 @@ const mysql = require('mysql');
 const fs = require('fs');
 const connection = mysql.createConnection({
   host: 'localhost',
+  port: 3306,
   user: 'root',
-  password: 'root',
-  database: 'nimble'
+  password: 'nimble2021mysql',
+  database: 'nimbledb'
 });
 
 var static = require('node-static');
@@ -32,7 +33,7 @@ var file = new static.Server('./public');
 
 connection.connect(function(err) {
   if (err) throw err;
-  connection.query("SELECT * FROM Events", function (err, result, fields) {
+  connection.query("select * from events", function (err, result, fields) {
     if (err) throw err;
     console.log(result);
     var eventJSON = JSON.stringify(result);
@@ -44,7 +45,7 @@ connection.connect(function(err) {
       }
       });
   });
-  connection.query("SELECT * FROM Backlog", function (err, result2, fields) {
+  /*connection.query("SELECT * FROM Backlog", function (err, result2, fields) {
     if (err) throw err;
     console.log(result2);
     var eventJSON2 = JSON.stringify(result2);
@@ -55,7 +56,7 @@ connection.connect(function(err) {
         console.log("File written successfully\n");
       }
       });
-  });
+  });*/
 });
 
 // if we arent on heroku then we need to readjust the port and directory information and we know that because the port wont be set
