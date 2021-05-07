@@ -11,13 +11,13 @@ Bootstrap/CSS: Presentation <br>
 JavaScript: Interaction <br>
 FullCalendar: JavaScript API
 ### Back-end
-(Heroku: Cloud Platform) <br>
-Node.js: REST API
+Node.js: REST API <br>
+MySQL
 ### Misc 
 Figma: Wireframe <br>
 Trello: Organization/Agile
 ## Retrospective
-Overall we did our best with the limited experience and time we had for this senior capstone project during Covid-19. Some things that went well was managing the project and focusing on the tasks that required attention, which new tasks to tackle, and any concerns needed to be addressed. Some of the hurdles that prevented us from achieving everything we had planned for this project was the unfamiliarity of the FullCalendar API and lack of backend experience, time, and resources. After this class, we’d like to come back to some of these concepts and mistakes and find new opportunities to improve in these areas.
+Overall we did our best with the limited experience and time we had for this senior capstone project during Covid-19. Some things that went well was managing the project and focusing on the tasks that required attention, which new tasks to tackle, and any concerns needed to be addressed. Through this project, we also had the opportunity to pursue several different avenues of development, such as React, Docker, PhP, Dragula, Browserfy, clearDB, and jQuery. Some of the hurdles that prevented us from achieving everything we had planned for this project was the unfamiliarity of the FullCalendar API and lack of backend experience, time, and resources. After this class, we’d like to come back to some of these concepts and mistakes and find new opportunities to improve in these areas.
 
 ## Licensing
 We have decided to go with the MIT license. We chose this particular license as it is open for changing even the source code. Which we thought was best because of our lack of resources. The MIT license would potentially allow developers to polish our product.
