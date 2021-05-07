@@ -37,14 +37,51 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log(result);
     var eventJSON = JSON.stringify(result);
+    
+console.log(eventJSON);
+    /*eventJSON = '{"events":' + eventJSON + '}';
+console.log(eventJSON);*/
+
+/*var id = 'title';
+var titleStr = 'title';
+var date = '2021-05-06';
+
+var newEventString = ', { "id": "' + id + '", "title": "' + titleStr + '", "start": "' + date + '"} ';
+              console.log(newEventString);
+
+              var jsonData = JSON.parse(fs.readFileSync('./public/events.json', 'utf8'));
+              var data = JSON.stringify(jsonData);
+              data = data.slice(1,-1);
+              var halp = '[' + data + newEventString + ']';
+              console.log(halp);
+    fs.writeFile('./public/events.json', halp, (err) => {
+      if (err)
+        console.log(err);
+      else {
+        console.log("File written successfully\n");
+      }
+    });
+  });
+
+
+*/
+/*var oldEventString = JSON.stringify(tempFile);
+var tempString 
+console.log('Readfile called: ' + oldEventString);*/
+//var result = oldEventString.slice(2,-2);
+//result = '[' + result + newEventString + ']';
+
+
     fs.writeFile('./public/events.json', eventJSON, (err) => {
       if (err)
         console.log(err);
       else {
         console.log("File written successfully\n");
       }
-      });
+    });
   });
+
+ 
   /*connection.query("SELECT * FROM Backlog", function (err, result2, fields) {
     if (err) throw err;
     console.log(result2);
@@ -78,3 +115,4 @@ var app = http.createServer(function(request,response){
 }
 ).listen(port);
 console.log(`Server running at ${port}/`);
+
