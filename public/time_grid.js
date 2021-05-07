@@ -1,6 +1,5 @@
 'use strict';
-
-
+var fs = require('fs');
 
 // var mysql = require('mysql');
 // const fs = require('fs');
@@ -114,9 +113,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: date,
                 allDay: allDay
               });
-              alert('Great. Now, update your database...');
-              
-              $.getScript("pshEvent.js", function() {
+
+              var newEventString = ', { "id": "' + id + '", "title": "' + titleStr + '", "start": "' + date + '"} ';
+              console.log(newEventString);
+
+              var jsonData = JSON.parse(fs.readFileSync('./public/events.json', 'utf8'));
+              var data = JSON.stringify(jsonData);
+              data = data.slice(1,-1);
+              var halp = '[' + data + newEventString + ']';
+              console.log(halp);
+
+              //alert('Great. Now, update your database...');
+              /*$.getScript("pshEvent.js", function() {
                 con.connect(function(err) {
                   if (err) throw err;
                     con.query("INSERT INTO Events (id, title, start) VALUES (\'" + id + "\',  \'" + title + "\', \'" + start + "\')", function (err, result, fields) {
@@ -124,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 });
                 alert("Script loaded but not necessarily executed.");
-              });
+              });*/
               
               //con.query("INSERT INTO Events (id, title, start) VALUES (\'" + id + "\',  \'" + title + "\', \'" + start + "\')");
               // con.connect(function(err) {
